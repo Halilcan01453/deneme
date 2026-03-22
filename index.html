@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newstream - Multi-Screen</title>
+<title>Newstream</title>
 <style>
 :root {
   --primary-color: #4caf50;
@@ -43,20 +43,17 @@ header h1 {
   gap: 10px;
 }
 
-/* Multi-Screen Controls */
-.screen-controls {
-  display: flex;
-  gap: 5px;
-}
+.screen-controls { display: flex; gap: 5px; }
 
 .screen-btn {
   background: #222;
   border: 1px solid #333;
   color: #ccc;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 12px;
+  transition: 0.2s;
 }
 
 .screen-btn.active {
@@ -71,17 +68,15 @@ header h1 {
   height: calc(100vh - 55px);
 }
 
-/* Video Grid Alanı */
 .video-area {
   flex: 3;
   background: #000;
   padding: 10px;
   display: grid;
   gap: 10px;
-  transition: all 0.3s ease;
 }
 
-/* Grid Modları */
+/* Grid Modes */
 .mode-1 { grid-template-columns: 1fr; }
 .mode-2 { grid-template-columns: 1fr 1fr; }
 .mode-3 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
@@ -102,23 +97,10 @@ header h1 {
   cursor: pointer;
 }
 
-.video-slot.selected {
-  border-color: #2196F3;
-}
+.video-slot.selected { border-color: #2196F3; box-shadow: 0 0 15px rgba(33, 150, 243, 0.3); }
 
-.video-slot iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+iframe { width: 100%; height: 100%; border: none; }
 
-.slot-placeholder {
-  color: #444;
-  text-align: center;
-  pointer-events: none;
-}
-
-/* Sidebar */
 .sidebar {
   flex: 1;
   min-width: 320px;
@@ -141,11 +123,7 @@ header h1 {
   outline: none;
 }
 
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
-}
+.tabs { display: flex; gap: 8px; margin-bottom: 15px; }
 
 .tab {
   flex: 1;
@@ -158,11 +136,7 @@ header h1 {
   color: #aaa;
 }
 
-.tab.active {
-  background: var(--primary-color);
-  color: #000;
-  font-weight: bold;
-}
+.tab.active { background: var(--primary-color); color: #000; font-weight: bold; }
 
 .channel {
   background: var(--bg-card);
@@ -189,15 +163,18 @@ header h1 {
 .channel-info { flex-grow: 1; display: flex; flex-direction: column; }
 .channel-name { font-size: 14px; font-weight: 600; }
 .channel-category { font-size: 11px; color: var(--text-dim); }
-.badge { background: #222; color: #999; padding: 3px 6px; border-radius: 4px; font-size: 10px; }
+.badge { background: #222; color: #999; padding: 3px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
 
 .hidden { display: none !important; }
 
 @media (max-width: 992px) {
   .container { flex-direction: column; height: auto; }
-  .video-area { height: 300px; position: sticky; top: 50px; z-index: 90; }
+  .video-area { height: 350px; position: sticky; top: 50px; z-index: 90; }
   .sidebar { max-width: 100%; min-width: 100%; }
 }
+
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -215,16 +192,16 @@ header h1 {
 <div class="container">
   <div class="video-area mode-1" id="videoGrid">
     <div class="video-slot selected" id="slot1" onclick="selectSlot(1)">
-      <div class="slot-placeholder">Ekran 1<br><small>Kanal Seçin</small></div>
+      <div style="text-align:center; color:#555">📺 Ekran 1<br><small>Kanal Seçin</small></div>
     </div>
     <div class="video-slot hidden" id="slot2" onclick="selectSlot(2)">
-      <div class="slot-placeholder">Ekran 2<br><small>Kanal Seçin</small></div>
+      <div style="text-align:center; color:#555">📺 Ekran 2</div>
     </div>
     <div class="video-slot hidden" id="slot3" onclick="selectSlot(3)">
-      <div class="slot-placeholder">Ekran 3<br><small>Kanal Seçin</small></div>
+      <div style="text-align:center; color:#555">📺 Ekran 3</div>
     </div>
     <div class="video-slot hidden" id="slot4" onclick="selectSlot(4)">
-      <div class="slot-placeholder">Ekran 4<br><small>Kanal Seçin</small></div>
+      <div style="text-align:center; color:#555">📺 Ekran 4</div>
     </div>
   </div>
 
@@ -247,7 +224,7 @@ header h1 {
         <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
         <div class="channel-info"><span class="channel-name">Bein Sports 2</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
       </div>
-       <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-3.m3u8')">
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-3.m3u8')">
         <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
         <div class="channel-info"><span class="channel-name">Bein Sports 3</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
       </div>
@@ -267,6 +244,15 @@ header h1 {
         <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
         <div class="channel-info"><span class="channel-name">Bein Sports 5 (YEDEK)</span><span class="channel-category">Spor</span></div><span class="badge">YEDEK</span>
       </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-max-1.m3u8')">
+        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
+        <div class="channel-info"><span class="channel-name">Bein Sports Max 1</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-max-2.m3u8')">
+        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
+        <div class="channel-info"><span class="channel-name">Bein Sports Max 2</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
+      </div>
+
       <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/s-sport.m3u8')">
         <img src="https://yt3.googleusercontent.com/gvJvmHjz_AD2oWOrKpMHrc6PkrPaf9ZJn714gU1hOYxOh7XWqLbSjwniRy9wXxs0R6vyIFsCivA=s900-c-k-c0x00ffffff-no-rj">
         <div class="channel-info"><span class="channel-name">S Sport</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
@@ -275,9 +261,21 @@ header h1 {
         <img src="https://yt3.googleusercontent.com/gvJvmHjz_AD2oWOrKpMHrc6PkrPaf9ZJn714gU1hOYxOh7XWqLbSjwniRy9wXxs0R6vyIFsCivA=s900-c-k-c0x00ffffff-no-rj">
         <div class="channel-info"><span class="channel-name">S Sport 2</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
       </div>
-       <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-1/playlist.m3u8')">
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-1/playlist.m3u8')">
         <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
         <div class="channel-info"><span class="channel-name">Tivibu Spor 1</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-2/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
+        <div class="channel-info"><span class="channel-name">Tivibu Spor 2</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-3/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
+        <div class="channel-info"><span class="channel-name">Tivibu Spor 3</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-4/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
+        <div class="channel-info"><span class="channel-name">Tivibu Spor 4</span><span class="channel-category">Spor</span></div><span class="badge">HD</span>
       </div>
     </div>
 
@@ -286,9 +284,21 @@ header h1 {
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/LaLiga_EA_Sports_2023_Vertical_Logo.svg">
         <div class="channel-info"><span class="channel-name">Barcelona - Vallecano</span><span class="channel-category">La Liga</span></div><span class="badge">CANLI</span>
       </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://andro.5172948.xyz/checklist/androstreamlivebs4.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Logo_Ligue_1_2024.jpg">
+        <div class="channel-info"><span class="channel-name">Marsilya - Lille</span><span class="channel-category">Ligue 1</span></div><span class="badge">CANLI</span>
+      </div>
       <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://andro.1386503.xyz/checklist/androstreamlivebs5.m3u8')">
         <img src="https://tbf.org.tr/sitefiny-tbf-media//haber/708769b6318e4f299bde5f5dc1858245_TRKYE%20SGORTA%20BASKETBOL%20SPER%20LG.jpg">
-        <div class="channel-info"><span class="channel-name">Beşiktaş - Trabzonspor</span><span class="channel-category">Basketbol</span></div><span class="badge">CANLI</span>
+        <div class="channel-info"><span class="channel-name">Beşiktaş - Trabzonspor</span><span class="channel-category">BSL</span></div><span class="badge">CANLI</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://andro.226503.xyz/checklist/androstreamlivetv85.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/b/bb/EFL_%28Carabao%29_Cup_Logo.png">
+        <div class="channel-info"><span class="channel-name">Arsenal - Manchester City</span><span class="channel-category">EFL Cup</span></div><span class="badge">CANLI</span>
+      </div>
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://curly-fire-b7a1.bestlivever.workers.dev/watch/chunk/yayinssport1.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/LaLiga_EA_Sports_2023_Vertical_Logo.svg">
+        <div class="channel-info"><span class="channel-name">Real Madrid - Atl Madrid</span><span class="channel-category">La Liga</span></div><span class="badge">CANLI</span>
       </div>
     </div>
   </div>
@@ -300,24 +310,17 @@ let currentSlotId = 1;
 function setGrid(num) {
   const grid = document.getElementById('videoGrid');
   grid.className = 'video-area mode-' + num;
-  
-  // Slotları göster/gizle
   for(let i=1; i<=4; i++) {
     const slot = document.getElementById('slot' + i);
-    if(i <= num) {
-      slot.classList.remove('hidden');
-    } else {
-      slot.classList.add('hidden');
-      slot.innerHTML = `<div class="slot-placeholder">Ekran ${i}<br><small>Kanal Seçin</small></div>`;
+    if(i <= num) { slot.classList.remove('hidden'); } 
+    else { 
+      slot.classList.add('hidden'); 
+      slot.innerHTML = `<div style="text-align:center; color:#555">📺 Ekran ${i}</div>`;
     }
   }
-
-  // Buton aktiflik durumu
   document.querySelectorAll('.screen-btn').forEach((btn, idx) => {
     btn.classList.toggle('active', idx + 1 === num);
   });
-
-  // Eğer seçili slot gizlendiyse slot 1'e dön
   if (currentSlotId > num) selectSlot(1);
 }
 
@@ -330,11 +333,7 @@ function selectSlot(id) {
 function play(url) {
   const targetSlot = document.getElementById('slot' + currentSlotId);
   targetSlot.innerHTML = `<iframe src="${url}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
-  
-  // Mobilde kolaylık: Kanala tıklayınca en üste kaydır
-  if(window.innerWidth <= 992) {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
+  if(window.innerWidth <= 992) { window.scrollTo({top: 0, behavior: 'smooth'}); }
 }
 
 function switchTab(tabName) {
