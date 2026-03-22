@@ -22,7 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
 header {
   display: flex;
   align-items: center;
@@ -43,14 +42,12 @@ header h1 {
   gap: 10px;
 }
 
-/* Ana Konteyner */
 .container {
   display: flex;
   flex-direction: row;
   height: calc(100vh - 55px);
 }
 
-/* Video Alanı */
 .video-area {
   flex: 3;
   background: #000;
@@ -81,7 +78,6 @@ iframe {
   border: none;
 }
 
-/* Sidebar */
 .sidebar {
   flex: 1;
   min-width: 320px;
@@ -92,7 +88,6 @@ iframe {
   border-left: 1px solid #222;
 }
 
-/* Arama Çubuğu */
 .search input {
   width: 100%;
   padding: 12px;
@@ -109,7 +104,6 @@ iframe {
   border-color: var(--primary-color);
 }
 
-/* Sekmeler */
 .tabs {
   display: flex;
   gap: 8px;
@@ -135,7 +129,6 @@ iframe {
   font-weight: bold;
 }
 
-/* Kanal Kartları */
 .channel {
   background: var(--bg-card);
   padding: 12px;
@@ -190,50 +183,18 @@ iframe {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-/* Mobil Uyumluluk (Responsive) */
 @media (max-width: 992px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .video-area {
-    padding: 0;
-    position: sticky;
-    top: 55px; /* Header altı */
-    z-index: 90;
-  }
-
-  .video-box {
-    border-radius: 0;
-    border: none;
-    max-height: unset;
-  }
-
-  .sidebar {
-    max-width: 100%;
-    min-width: 100%;
-    border-left: none;
-    height: auto;
-    overflow-y: visible;
-  }
-  
-  header h1 {
-    font-size: 18px;
-  }
+  .container { flex-direction: column; height: auto; }
+  .video-area { padding: 0; position: sticky; top: 55px; z-index: 90; }
+  .video-box { border-radius: 0; border: none; max-height: unset; }
+  .sidebar { max-width: 100%; min-width: 100%; border-left: none; height: auto; overflow-y: visible; }
 }
 
-/* Scrollbar */
-.sidebar::-webkit-scrollbar {
-  width: 5px;
-}
-.sidebar::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 10px;
-}
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -254,7 +215,7 @@ iframe {
 
   <div class="sidebar">
     <div class="search">
-      <input type="text" placeholder="Kanal veya maç ara...">
+      <input type="text" id="searchInput" onkeyup="filterChannels()" placeholder="Kanal veya maç ara...">
     </div>
 
     <div class="tabs">
@@ -263,7 +224,8 @@ iframe {
     </div>
 
     <div id="kanallar-list">
-      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://curly-fire-b7a1.bestlivever.workers.dev/watch/chunk/yayinssport1.m3u8')">
+      
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-1.m3u8')">
         <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png" alt="bein">
         <div class="channel-info">
           <span class="channel-name">Bein Sports 1</span>
@@ -288,6 +250,15 @@ iframe {
           <span class="channel-category">Spor</span>
         </div>
         <span class="badge">HD</span>
+      </div>
+
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://curly-fire-b7a1.bestlivever.workers.dev/watch/chunk/yayinb3.m3u8')">
+        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png" alt="bein">
+        <div class="channel-info">
+          <span class="channel-name">Bein Sports 3 (YEDEK)</span>
+          <span class="channel-category">Spor</span>
+        </div>
+        <span class="badge">YEDEK</span>
       </div>
 
       <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-4.m3u8')">
@@ -343,6 +314,43 @@ iframe {
         </div>
         <span class="badge">HD</span>
       </div>
+
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-1/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" alt="tivibu">
+        <div class="channel-info">
+          <span class="channel-name">Tivibu Spor 1</span>
+          <span class="channel-category">Spor</span>
+        </div>
+        <span class="badge">HD</span>
+      </div>
+
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-2/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" alt="tivibu">
+        <div class="channel-info">
+          <span class="channel-name">Tivibu Spor 2</span>
+          <span class="channel-category">Spor</span>
+        </div>
+        <span class="badge">HD</span>
+      </div>
+
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-3/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" alt="tivibu">
+        <div class="channel-info">
+          <span class="channel-name">Tivibu Spor 3</span>
+          <span class="channel-category">Spor</span>
+        </div>
+        <span class="badge">HD</span>
+      </div>
+
+      <div class="channel" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-4/playlist.m3u8')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg" alt="tivibu">
+        <div class="channel-info">
+          <span class="channel-name">Tivibu Spor 4</span>
+          <span class="channel-category">Spor</span>
+        </div>
+        <span class="badge">HD</span>
+      </div>
+
     </div>
 
     <div id="maclar-list" class="hidden">
@@ -361,9 +369,19 @@ iframe {
 <script>
 function play(url) {
   document.getElementById('player').innerHTML = `<iframe src="${url}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
-  // Mobilde kanala tıklandığında otomatik yukarı (videoya) kaydır
   if(window.innerWidth <= 992) {
     window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+}
+
+function filterChannels() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let activeTabId = document.querySelector('.tab.active').innerText === "Kanallar" ? "kanallar-list" : "maclar-list";
+  let channels = document.getElementById(activeTabId).getElementsByClassName('channel');
+
+  for (let i = 0; i < channels.length; i++) {
+    let name = channels[i].querySelector('.channel-name').innerText.toLowerCase();
+    channels[i].classList.toggle('hidden', !name.includes(input));
   }
 }
 
@@ -371,7 +389,8 @@ function switchTab(tabName) {
   const kanallar = document.getElementById('kanallar-list');
   const maclar = document.getElementById('maclar-list');
   const tabs = document.querySelectorAll('.tab');
-
+  
+  document.getElementById('searchInput').value = "";
   tabs.forEach(tab => tab.classList.remove('active'));
 
   if (tabName === 'kanallar') {
@@ -383,8 +402,8 @@ function switchTab(tabName) {
     maclar.classList.remove('hidden');
     tabs[1].classList.add('active');
   }
+  filterChannels();
 }
 </script>
-
 </body>
 </html>
