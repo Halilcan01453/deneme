@@ -64,7 +64,6 @@ header {
   flex-direction: column;
   padding: 15px;
   background: var(--bg-black);
-  overflow-y: auto;
 }
 
 .video-grid { display: grid; gap: 15px; flex-grow: 1; }
@@ -121,7 +120,21 @@ iframe { width: 100%; height: 100%; border: none; }
   border-left: 1px solid var(--border-color);
 }
 
-.search-box { padding: 15px 20px; }
+/* BAŞLIK VE ORTALAMA */
+.sidebar-header {
+  padding: 20px 20px 10px 20px;
+  text-align: center;
+}
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.search-box { padding: 10px 20px 15px 20px; }
 .search-box input {
   width: 100%;
   background: var(--bg-item);
@@ -208,6 +221,9 @@ iframe { width: 100%; height: 100%; border: none; }
   </div>
 
   <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Canlı Kanallar</h3>
+    </div>
     <div class="search-box">
       <input type="text" id="searchInput" onkeyup="filterChannels()" placeholder="Kanal ara...">
     </div>
@@ -221,51 +237,22 @@ iframe { width: 100%; height: 100%; border: none; }
         <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
         <div class="channel-item-info"><span class="channel-item-name">Bein Sports 1 (B)</span><span class="channel-item-sub">Spor • HD</span></div>
       </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-2.m3u8', 'Bein Sports 2', 'Spor')">
-        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
-        <div class="channel-item-info"><span class="channel-item-name">Bein Sports 2</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-3.m3u8', 'Bein Sports 3', 'Spor')">
-        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
-        <div class="channel-item-info"><span class="channel-item-name">Bein Sports 3</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-4.m3u8', 'Bein Sports 4', 'Spor')">
-        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
-        <div class="channel-item-info"><span class="channel-item-name">Bein Sports 4</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/bein-sports-5.m3u8', 'Bein Sports 5', 'Spor')">
-        <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2023/08/65/64d12cc185a4f_ptv.bein.ui.png">
-        <div class="channel-item-info"><span class="channel-item-name">Bein Sports 5</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-
       <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/s-sport.m3u8', 'S Sport', 'Spor')">
         <img src="https://yt3.googleusercontent.com/gvJvmHjz_AD2oWOrKpMHrc6PkrPaf9ZJn714gU1hOYxOh7XWqLbSjwniRy9wXxs0R6vyIFsCivA=s900-c-k-c0x00ffffff-no-rj">
         <div class="channel-item-info"><span class="channel-item-name">S Sport</span><span class="channel-item-sub">Spor • HD</span></div>
       </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://noisy-cake-8ebc.travestigamzes.workers.dev/https://corestream.ronaldovurdu.help//hls/s-sport-2.m3u8', 'S Sport 2', 'Spor')">
-        <img src="https://yt3.googleusercontent.com/gvJvmHjz_AD2oWOrKpMHrc6PkrPaf9ZJn714gU1hOYxOh7XWqLbSjwniRy9wXxs0R6vyIFsCivA=s900-c-k-c0x00ffffff-no-rj">
-        <div class="channel-item-info"><span class="channel-item-name">S Sport 2</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-1/playlist.m3u8', 'Tivibu Spor 1', 'Spor')">
-        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
-        <div class="channel-item-info"><span class="channel-item-name">Tivibu Spor 1</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-2/playlist.m3u8', 'Tivibu Spor 2', 'Spor')">
-        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
-        <div class="channel-item-info"><span class="channel-item-name">Tivibu Spor 2</span><span class="channel-item-sub">Spor • HD</span></div>
-      </div>
-
       <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://hlsssssss.ercansov.workers.dev/https://corestream.ronaldovurdu.help//hls/exxen1.m3u8', 'Exxenspor 1', 'Spor')">
         <img src="https://yt3.ggpht.com/UJrEza5owqpIQSdFredj9UqwNvPTEs1rLhfaf8lOxrojMcmM0QVrGm1dAl6bLv1We-3uC7Nq_g=s176-c-k-c0x00ffffff-no-rj-mo">
         <div class="channel-item-info"><span class="channel-item-name">Exxenspor 1</span><span class="channel-item-sub">Spor • CANLI</span></div>
       </div>
-
+      <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://dga1op10s1u3leo.ec876fd9240622.click/live/stivibuspor-1/playlist.m3u8', 'Tivibu Spor 1', 'Spor')">
+        <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Tivibu_spor_logosu.jpg/250px-Tivibu_spor_logosu.jpg">
+        <div class="channel-item-info"><span class="channel-item-name">Tivibu Spor 1</span><span class="channel-item-sub">Spor • HD</span></div>
+      </div>
       <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8bucuk/tv8bucuk_720p.m3u8', 'TV 8.5', 'Ulusal')">
         <img src="https://canlitv.com/resimler/blog/tv85-frekans-bilgisi.jpg">
         <div class="channel-item-info"><span class="channel-item-name">TV 8.5</span><span class="channel-item-sub">Ulusal • HD</span></div>
       </div>
-
       <div class="channel-item" onclick="play('https://www.m3u8player.online/embed/m3u8?url=https://cachehsi2b.netplus.ch/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzc0NjA3NDAzIiwic2lwIjoiIiwicGF0aCI6Ii9saXZlL2Vkcy9sZXF1aXBlMjEvYnJvd3Nlci1ITFM4LyIsInNlc3Npb25fY2RuX2lkIjoiMTIyYTMzM2NkMjdjNDcyMiIsInNlc3Npb25faWQiOiIiLCJjbGllbnRfaWQiOiIiLCJkZXZpY2VfaWQiOiIiLCJtYXhfc2Vzc2lvbnMiOjAsInNlc3Npb25fZHVyYXRpb24iOjAsInVybCI6Imh0dHBzOi8vMTAuMC4yMjkuMTkiLCJzZXNzaW9uX3RpbWVvdXQiOjAsImF1ZCI6IjMiLCJzb3VyY2VzIjpbNDhdfQ==.1BE56_a0WZIKjxqmpumkcIzN9TUVdygFGZLdxIvRbgXCcEQe1cYXwQ5bA6j9ybCQcrB__bmTzSpXWDL0JPz_4w==/live/eds/lequipe21/browser-HLS8/lequipe21.m3u8', 'L\'EQUIPE', 'Spor')">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTYTZG4CcWsMhMIAsM74I7trwZgjst4eLoqQ&s">
         <div class="channel-item-info"><span class="channel-item-name">L'EQUIPE</span><span class="channel-item-sub">Spor • CANLI</span></div>
